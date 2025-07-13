@@ -56,13 +56,7 @@ class ProximityStreamHandler(
     override fun onSensorChanged(event: SensorEvent?) {
         val distance = event ?.values?.get(0)?.toInt() //get distance
         if (distance != null) {
-            if(distance > 0) {
-                // distance > 0 , nothing is near
-                eventSink ?.success(0)
-            }else{
-                // distance == 0, something is near
-                eventSink ?.success(1)
-            }
+                eventSink?.success(distance);
         }
     }
 
